@@ -76,8 +76,16 @@ namespace Kelahn.OBJ {
 			}
 			
 			vertices = new float[vertexfaceArray.Count * 3][];
-			vertexnormals = new float[vertexfaceArray.Count * 3][];
-			vertextextures = new float[vertexfaceArray.Count * 3][];
+			if(vertexnormalfaceArray.Count > 0) {
+				vertexnormals = new float[vertexfaceArray.Count * 3][];
+			} else {
+				vertexnormals = null;
+			}
+			if(vertextexturefaceArray.Count > 0) {
+				vertextextures = new float[vertexfaceArray.Count * 3][];
+			} else {
+				vertextextures = null;
+			}
 			faces = new int[vertexfaceArray.Count][];
 			for(int index = 0; index < vertexfaceArray.Count; index++) {
 				faces[index] = new int[3] {0, 0, 0};
@@ -86,15 +94,15 @@ namespace Kelahn.OBJ {
 				vertices[(index * 3) + 0] = (float[])vertArray[facevertex[0]-1];
 				vertices[(index * 3) + 1] = (float[])vertArray[facevertex[1]-1];
 				vertices[(index * 3) + 2] = (float[])vertArray[facevertex[2]-1];
-
-				if(vertextexturefaceArray.Count > index) {
+				
+				if((vertextextures != null) && (vertextexturefaceArray.Count > index)) {
 					int[] facetexture = (int[])vertextexturefaceArray[index];
 					vertextextures[(index * 3) + 0] = (float[])verttextureArray[facetexture[0]-1];
 					vertextextures[(index * 3) + 1] = (float[])verttextureArray[facetexture[1]-1];
 					vertextextures[(index * 3) + 2] = (float[])verttextureArray[facetexture[2]-1];
 				}
 				
-				if(vertexnormalfaceArray.Count > index) {
+				if((vertexnormals != null) && (vertexnormalfaceArray.Count > index)) {
 					int[] facenormal = (int[])vertexnormalfaceArray[index];
 					vertexnormals[(index * 3) + 0] = (float[])vertnormalArray[facenormal[0]-1];
 					vertexnormals[(index * 3) + 1] = (float[])vertnormalArray[facenormal[1]-1];

@@ -44,8 +44,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\OBJLoader\ObjectLoader.cs" />
-     <Compile Include="Assets\OBJLoader\ParseOBJ.cs" />
+     <Compile Include="Assets\OBJLoader\Model.cs" />
+     <Compile Include="Assets\OBJLoader\OBJLoader.cs" />
      <Compile Include="Assets\TestParse.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

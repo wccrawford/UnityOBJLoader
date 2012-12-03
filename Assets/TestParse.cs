@@ -65,8 +65,8 @@ public class TestParse : MonoBehaviour {
 "f 8/10 7/9 6/21 5/22\n" +
 "";
 		GameObject newObject = new GameObject("newObject");
-		newObject.AddComponent("ObjectLoader");
-		ObjectLoader objLoader = newObject.GetComponent<ObjectLoader>();
+		newObject.AddComponent("OBJLoader");
+		OBJLoader objLoader = newObject.GetComponent<OBJLoader>();
 		objLoader.CreateMesh(fileContents);
 				
 		newObject.GetComponent<MeshRenderer>().material = testMaterial;
